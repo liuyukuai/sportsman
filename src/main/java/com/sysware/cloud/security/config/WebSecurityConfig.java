@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
                 // 由于使用的是JWT，我们这里不需要csrf
-  //              .csrf().disable()
+             //   .csrf().disable()
 
                 .exceptionHandling().authenticationEntryPoint(weChatAuthenticationEntryPoint).and()
 
@@ -56,7 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
 
-                .antMatchers("/users","/users/**").authenticated()
+                .antMatchers("/sportsman.htm").authenticated()
 
                 .antMatchers(HttpMethod.POST,"/posts","/categories").authenticated()
 

@@ -1,9 +1,12 @@
 package com.sysware.cloud.security.config;
 
+import com.sysware.cloud.utils.wechat.WxConstants;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -25,8 +28,13 @@ public class WxAuthenticationEntryPoint implements AuthenticationEntryPoint, Ser
     public void commence(HttpServletRequest request,
                          HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-//        Response rs = Response.error("您没有权限访问该") ;
-//        rs.setCode(401);
-//        response.getWriter().write(GsonUtils.toJson(rs));
+        HttpServletRequest httpRequest = (HttpServletRequest) request;
+        HttpServletResponse httpResponse = (HttpServletResponse) response;
+        StringBuffer url = httpRequest.getRequestURL();
+        if (httpRequest.getQueryString() != null) {
+            url.append('?');
+            url.append(httpRequest.getQueryString());
+        }
+        httpResponse.sendRedirect("https://open.weixin.qq.com/connect/oauth2/authorize?appid="+ WxConstants.CORP_ID+"&redirect_uri=" + url.toString() + "&response_type=code&scope=snsapi_base&state=weioa#wechat_redirect");
     }
 }
