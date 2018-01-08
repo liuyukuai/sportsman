@@ -1,4 +1,4 @@
-package com.sysware.cloud.config;
+package com.sysware.cloud.security.config;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -17,7 +17,7 @@ import java.io.Serializable;
  *
  */
 @Component
-public class WeChatAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
+public class WxAuthenticationEntryPoint implements AuthenticationEntryPoint, Serializable {
 
     private static final long serialVersionUID = -8970718410437077606L;
 

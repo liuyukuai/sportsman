@@ -8,4 +8,10 @@ spring:
     url: jdbc:mysql://172.96.193.200/demo
     driver-class-name: com.mysql.jdbc.Driver
   application:
-    name: demo
+    name: sprotsman
+# JWT
+jwt:
+  header: Authorization
+  secret: mySecret
+  expiration: 604800
+  tokenHead: "Bearer "

@@ -1,4 +1,4 @@
-package com.sysware.cloud.config;
+package com.sysware.cloud.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,7 +21,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private WeChatAuthenticationEntryPoint weChatAuthenticationEntryPoint;
+    private WxAuthenticationEntryPoint weChatAuthenticationEntryPoint;
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -39,8 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public WeChatAuthenticationTokenFilter authenticationTokenFilterBean() {
-        return new WeChatAuthenticationTokenFilter();
+    public WxAuthenticationTokenFilter authenticationTokenFilterBean() {
+        return new WxAuthenticationTokenFilter();
     }
 
     @Override
