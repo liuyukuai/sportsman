@@ -25,4 +25,7 @@ public final class WxConstants {
     // 微信获取USER请求地址
     public static final String WX_USER_BY_CODE_URL = "https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=ACCESS_TOKEN&code=CODE";
 
+    // 微信获取USER请求地址
+    public static final String WX_USER_ID_URL = "https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token=ACCESS_TOKEN&userid=USERID";
+
 }

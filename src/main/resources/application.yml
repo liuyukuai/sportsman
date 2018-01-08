@@ -1,3 +1,4 @@
+
 spring:
   jpa:
     hibernate:
@@ -15,3 +16,5 @@ jwt:
   secret: mySecret
   expiration: 604800
   tokenHead: "Bearer "
+server:
+  port: 80

@@ -87,7 +87,7 @@ public class WxUtils implements UserDetailsService {
 
     public static UserInfo getUserById(String userId) {
         if (StringUtils.isNotBlank(userId)) {
-            String userJson = HttpsClient.newInstance().setUrl(WxConstants.WX_USER_BY_CODE_URL.replace(WxConstants.ACCESS_TOKEN_KEY, getToken()).replace(WxConstants.USER_ID_KEY, userId)).get();
+            String userJson = HttpsClient.newInstance().setUrl(WxConstants.WX_USER_ID_URL.replace(WxConstants.ACCESS_TOKEN_KEY, getToken()).replace(WxConstants.USER_ID_KEY, userId)).get();
             JsonObject jsonObject = GsonUtils.toJson(userJson);
             try {
                 UserInfo userInfo = new UserInfo();
@@ -101,7 +101,6 @@ public class WxUtils implements UserDetailsService {
                 userInfo.setGender(jsonObject.get("gender").getAsString());
                 userInfo.setMobile(jsonObject.get("mobile").getAsString());
                 userInfo.setPhoto(jsonObject.get("avatar").getAsString());
-                userInfo.setWeixinid(jsonObject.get("weixinid").getAsString());
 
                 //TODO 角色处理
 

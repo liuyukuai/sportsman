@@ -27,8 +27,6 @@ public class UserInfo implements UserDetails {
 
     private String photo;
 
-    private String weixinid;
-
     private String password;
 
     private Collection<? extends GrantedAuthority> authorities;
