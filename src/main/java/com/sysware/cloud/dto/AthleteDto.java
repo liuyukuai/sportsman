@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import java.io.Serializable;
 
 @Data
-public class SportsmanDto  implements Serializable {
+public class AthleteDto implements Serializable {
 
 
     //个人信息
@@ -30,7 +30,7 @@ public class SportsmanDto  implements Serializable {
     private Integer participant_count;
     //从什么项目跨选到本项
     @NotEmpty(message = "从什么项目跨选到本项不能为空")
-    private String from_event;
+    private String from_item;
     //从事本项目几年
     @NotEmpty(message = "从事本项目几年不能为空")
     private Integer engage_year;

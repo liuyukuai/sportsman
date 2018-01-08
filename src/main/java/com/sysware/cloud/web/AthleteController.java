@@ -1,19 +1,18 @@
 package com.sysware.cloud.web;
 
-import com.sysware.cloud.dto.SportsmanDto;
-import com.sysware.cloud.entity.Sportsman;
-import com.sysware.cloud.service.SportsmanService;
+import com.sysware.cloud.dto.AthleteDto;
+import com.sysware.cloud.entity.Athlete;
+import com.sysware.cloud.service.AthleteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 
 @Controller
-public class SportsmanController {
+public class AthleteController {
 
     @Autowired
-    private SportsmanService sportsmanService;
+    private AthleteService athleteService;
 
     @GetMapping("sportsman.htm")
     public String sports(){
@@ -24,7 +23,7 @@ public class SportsmanController {
      * 增加
      */
     @PostMapping(value = "/sportsman")
-    public Sportsman addSportsman(SportsmanDto sportsmanDto){
-        return sportsmanService.addSportsman(sportsmanDto);
+    public Athlete addSportsman(AthleteDto athleteDto){
+        return athleteService.saveAthlete(athleteDto);
     }
 }

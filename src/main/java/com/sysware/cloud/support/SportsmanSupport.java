@@ -1,9 +1,5 @@
 package com.sysware.cloud.support;
 
-import com.sysware.cloud.dto.SportsmanDto;
-import com.sysware.cloud.entity.Sportsman;
-import com.sysware.cloud.vo.SportsmanVo;
-
 /**
  * 运动员支持类
  */
@@ -14,8 +10,8 @@ public final class SportsmanSupport {
      * @param sportsman
      * @return
      */
-//    public static SportsmanVo process(Sportsman sportsman) {
-//        return ProcessUtils.process(SportsmanVo.class, user, new ProcessCallback<SportsmanVo, User>() {
+//    public static AthleteVo process(Athlete sportsman) {
+//        return ProcessUtils.process(AthleteVo.class, user, new ProcessCallback<AthleteVo, User>() {
 //            @Override
 //            public void call(UserVo userDto, User user) {
 //                userDto.setCreateTime(DateFormatUtils.format(user.getCreateTime(), Constants.SIMPLE_DATA_PATTEN));
@@ -23,7 +19,7 @@ public final class SportsmanSupport {
 //        });
 //    }
 
-//    public static Sportsman process(SportsmanDto sportsmanDto) {
+//    public static Athlete process(AthleteDto sportsmanDto) {
 //        return ProcessUtils.process(User.class, userDto, new ProcessCallback<User, UserDto>() {
 //            @Override
 //            public void call(User user, UserDto userDto) {
