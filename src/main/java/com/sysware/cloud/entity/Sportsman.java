@@ -90,24 +90,25 @@ public class Sportsman {
     private String treatment_need;
 
     //恢复状态
+    //睡眠状态（动态）好、较好、一般、差、很差以及其他描述
     @Column(name = "SLEEP")
     private Integer sleep;
-    //睡眠状态（动态）好、较好、一般、差、很差以及其他描述
+    //饮食状态（动态）好、较好、一般、差、很差以及其他描述
     @Column(name = "DIET")
     private Integer diet;
-    //饮食状态（动态）好、较好、一般、差、很差以及其他描述
+    //疲劳状态（动态）好、较好、一般、差、很差以及其他描述
     @Column(name = "TIREDNESS")
     private Integer tiredness;
-    //疲劳状态（动态）好、较好、一般、差、很差以及其他描述
+    //伤病状态（动态）好、较好、一般、差、很差以及其他描述
     @Column(name = "INJURY")
     private Integer injury;
-    //伤病状态（动态）好、较好、一般、差、很差以及其他描述
+    //情绪状态（动态）好、较好、一般、差、很差以及其他描述
     @Column(name = "MOOD")
     private Integer mood;
-    //情绪状态（动态）好、较好、一般、差、很差以及其他描述
+    //恢复需求（动态）
     @Column(name = "RECOVER_NEED")
     private String recover_need;
-    //恢复需求（动态）
+
 
     //主要对手（列项目、人名、国家）
     @Column(name = "OPPONENT")
