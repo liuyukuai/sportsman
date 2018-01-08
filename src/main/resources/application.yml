@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    username: root
+    password: 1qaz3edc
+    url: jdbc:mysql://172.96.193.200/demo
+    driver-class-name: com.mysql.jdbc.Driver
+  application:
+    name: demo
