@@ -24,6 +24,6 @@ public class AthleteController {
      */
     @PostMapping(value = "/athlete")
     public Athlete saveAthlete(AthleteDto athleteDto){
-        return athleteService.saveAthlete(athleteDto);
+        return athleteService.create(athleteDto);
     }
 }

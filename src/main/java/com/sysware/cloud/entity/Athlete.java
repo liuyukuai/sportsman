@@ -13,10 +13,6 @@ public class Athlete {
     @Column(name = "ID")
     private String id;
 
-    //个人信息
-    //项目
-    @Column(name = "ITEM")
-    private String item;
     //运动员
     @Column(name = "NAME")
     private String name;
@@ -57,5 +53,9 @@ public class Athlete {
     @Column(name = "YEARLY_RANK")
     private Integer yearly_rank;
 
+    //个人信息
+    //项目
+    @Column(name = "ITEM")
+    private String item;
 
 }

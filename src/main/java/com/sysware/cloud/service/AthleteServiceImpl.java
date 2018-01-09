@@ -15,7 +15,7 @@ public class AthleteServiceImpl implements AthleteService {
 
 
     @Override
-    public Athlete saveAthlete(AthleteDto athleteDto) {
+    public Athlete create(AthleteDto athleteDto) {
 
         Athlete athlete = AthleteSupport.process(athleteDto);
 

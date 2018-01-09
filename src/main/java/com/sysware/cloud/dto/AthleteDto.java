@@ -8,11 +8,6 @@ import java.io.Serializable;
 @Data
 public class AthleteDto implements Serializable {
 
-
-    //个人信息
-    //项目
-    @NotEmpty(message = "项目不能为空")
-    private String item;
     //运动员
     @NotEmpty(message = "姓名不能为空")
     private String name;
@@ -40,6 +35,10 @@ public class AthleteDto implements Serializable {
     //之前执教教练(选填)
     private String pre_coach;
 
+    //个人信息
+    //项目
+    @NotEmpty(message = "项目不能为空")
+    private String item;
 
     //个人成绩信息
     //年度各单项最好成绩名次
