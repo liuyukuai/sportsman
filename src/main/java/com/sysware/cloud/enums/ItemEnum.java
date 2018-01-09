@@ -3,8 +3,8 @@ package com.sysware.cloud.enums;
 
 public enum ItemEnum {
 
-    LUGE("雪车"),
-    BOBSLEIQH("钢架雪车"),
+    BOBSLEIQH("雪车"),
+    SKELETON("钢架雪车"),
     ALPINE_SKIING("高山滑雪"),
     SKI_JUMPING("跳台滑雪"),
     BIATHLON("冬季两项"),
