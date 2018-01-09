@@ -10,6 +10,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   application:
     name: sprotsman
+  freemarker:
+    cache: false
+    settings:
+      template_update_delay: 0
 # JWT
 jwt:
   header: Authorization

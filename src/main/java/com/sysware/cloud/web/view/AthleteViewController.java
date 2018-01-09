@@ -1,4 +1,4 @@
-package com.sysware.cloud.web;
+package com.sysware.cloud.web.view;
 
 import com.sysware.cloud.dto.AthleteDto;
 import com.sysware.cloud.entity.Athlete;
@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class AthleteController {
-
-    @Autowired
-    private AthleteService athleteService;
+public class AthleteViewController {
 
     @GetMapping(value = {"/","index"})
     public String sports(){
@@ -20,15 +17,7 @@ public class AthleteController {
     }
 
     @GetMapping(value = "athletes")
-    public String createView(){
+    public String createAthlete(){
         return "athlete_create";
-    }
-
-    /**
-     * 增加
-     */
-    @PostMapping(value = "/athlete")
-    public Athlete saveAthlete(AthleteDto athleteDto){
-        return athleteService.create(athleteDto);
     }
 }

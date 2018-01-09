@@ -21,21 +21,11 @@ public final class HealthSupport {
      * @return
      */
     public static HealthVo process(Health health) {
-        return ProcessUtils.process(HealthVo.class, health, new ProcessCallback<HealthVo, Health>() {
-            @Override
-            public void call(HealthVo healthDto, Health health) {
-//                athleteDto.setCreateTime(DateFormatUtils.format(user.getCreateTime(), constants.SIMPLE_DATA_PATTEN));
-            }
-        });
+        return ProcessUtils.process(HealthVo.class, health);
     }
 
     public static Health process(HealthDto healthDto) {
-        return ProcessUtils.process(Health.class, healthDto, new ProcessCallback<Health, HealthDto>() {
-            @Override
-            public void call(Health health, HealthDto healthDto) {
-                health.setId(UUIDUtil.getGuid());
-            }
-        });
+        return ProcessUtils.process(Health.class, healthDto, (health,dto) -> health.setId(UUIDUtil.getGuid()));
     }
 
 }

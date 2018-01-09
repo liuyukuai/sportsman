@@ -21,21 +21,11 @@ public final class AthleteSupport {
      * @return
      */
     public static AthleteVo process(Athlete athlete) {
-        return ProcessUtils.process(AthleteVo.class, athlete, new ProcessCallback<AthleteVo, Athlete>() {
-            @Override
-            public void call(AthleteVo athleteDto, Athlete athlete) {
-//                athleteDto.setCreateTime(DateFormatUtils.format(user.getCreateTime(), constants.SIMPLE_DATA_PATTEN));
-            }
-        });
+        return ProcessUtils.process(AthleteVo.class, athlete);
     }
 
     public static Athlete process(AthleteDto athleteDto) {
-        return ProcessUtils.process(Athlete.class, athleteDto, new ProcessCallback<Athlete, AthleteDto>() {
-            @Override
-            public void call(Athlete athlete, AthleteDto userDto) {
-                athlete.setId(UUIDUtil.getGuid());
-            }
-        });
+        return ProcessUtils.process(Athlete.class, athleteDto,(athlete,dto) -> athlete.setId(UUIDUtil.getGuid()));
     }
 
 }
