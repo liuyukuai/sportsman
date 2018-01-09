@@ -130,12 +130,12 @@
                     },
                     callback: function(indexArr, data) {
                         $("#xb").text(data);
-                        console.log(indexArr[0]);
-                        that.gender = indexArr[0];
+                        that.athlete.gender = indexArr[0];
                     }
                 });
             },
             getItem:function () {
+                var that = this;
                 axios.get('/items').then(function (response) {
                     new MobileSelect({
                         trigger: '#xm',
@@ -147,7 +147,8 @@
                         transitionEnd: function(indexArr, data) {
                         },
                         callback: function(indexArr, data) {
-                            $("#xm").text(data);
+                            $("#xm").text(data.value);
+                            that.athlete.item = data.id;
                         }
                     })
                 }).catch(function (error) {
