@@ -17,13 +17,14 @@
 </head>
 
 <body>
+<div id="app">
 <div class="split">
     基本信息
 </div>
-<div class="content" id="app">
+<div class="content">
     <div class="input-box">
         <label>姓名</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入"  v-model="athlete.name"/>
     </div>
     <div class="input-box">
         <label>项目</label>
@@ -35,42 +36,37 @@
     </div>
 
     <div class="input-box">
-        <label>姓名</label>
-        <input placeholder="请输入" />
-    </div>
-
-    <div class="input-box">
         <label>年龄（岁）</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入"  v-model="athlete.age"/>
     </div>
 
     <div class="input-box">
         <label>代表单位</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入"  v-model="athlete.behalf_unit"/>
     </div>
 
     <div class="input-box">
         <label>第几次参加冬奥会</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入" v-model="athlete.participant_count"/>
     </div>
 
     <div class="input-box">
         <label>从什么项目跨选到本项</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入" v-model="athlete.from_item"/>
     </div>
 
     <div class="input-box">
         <label>从事本项目几年</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入" v-model="athlete.engage_year"/>
     </div>
 
     <div class="input-box">
         <label>现执教教练</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入" v-model="athlete.current_coach"/>
     </div>
     <div class="input-box">
         <label>之前执教教练（选填）</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入"  v-model="athlete.pre_coach"/>
     </div>
 
 </div>
@@ -80,17 +76,18 @@
 <div class="content">
     <div class="input-box">
         <label>年度各单项最好成绩名次</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入"  v-model="athlete.highest_rank"/>
     </div>
     <div class="input-box">
         <label>最近一次世锦赛各单项名次</label>
-        <input type="text" placeholder="请输入" />
+        <input type="text" placeholder="请输入" v-model="athlete.latest_world_rank"/>
     </div>
     <div class="input-box">
         <label>2016-17年度排名</label>
-        <input placeholder="请输入" />
+        <input placeholder="请输入" v-model="athlete.yearly_rank">
     </div>
-    <button type="button" class="submitBtn" >保 存</button>
+    <button type="button" class="submitBtn" @click="createAthlete">保 存</button>
+</div>
 </div>
 </body>
 <script class="demo-script">
@@ -114,6 +111,16 @@
             }
         },
         methods:{
+            createAthlete:function () {
+                console.log(this.athlete)
+                axios.post('/athlete', this.athlete)
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
             fillItem:function () {
                 this.getItem()
             },
@@ -141,14 +148,15 @@
                         trigger: '#xm',
                         title: '选择项目',
                         wheels: [{
-                            data: response.data
+                            data: response.data.data
                         }],
                         position: [2], //初始化定位 打开时默认选中的哪个 如果不填默认为0
                         transitionEnd: function(indexArr, data) {
                         },
                         callback: function(indexArr, data) {
-                            $("#xm").text(data.value);
-                            that.athlete.item = data.id;
+                            $("#xm").text(data[0].value);
+                            that.athlete.item = data[0].id;
+                            console.log(data[0])
                         }
                     })
                 }).catch(function (error) {

@@ -5,4 +5,5 @@ import com.sysware.cloud.entity.Athlete;
 
 public interface AthleteService {
     Athlete create(AthleteDto athleteDto);
+    Athlete getById(String id);
 }

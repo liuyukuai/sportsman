@@ -7,10 +7,7 @@ import com.sysware.cloud.enums.ItemEnum;
 import com.sysware.cloud.service.AthleteService;
 import com.sysware.cloud.utils.json.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -38,8 +35,14 @@ public class AthleteController {
      * 創建運動員
      */
     @PostMapping(value = "/athlete")
-    public Response<Athlete> saveAthlete(@RequestBody @Valid AthleteDto athleteDto){
-        return Response.success(athleteService.create(athleteDto));
+    public Response<String> saveAthlete(@RequestBody @Valid AthleteDto athleteDto){
+        return Response.success(athleteService.create(athleteDto).getId());
     }
+
+    @GetMapping(value = "/athlete/{id}")
+    public Response<Athlete> getAthlete(@PathVariable String id){
+        return Response.success(athleteService.getById(id));
+    }
+
 
 }

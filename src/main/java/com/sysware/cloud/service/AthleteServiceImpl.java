@@ -16,10 +16,13 @@ public class AthleteServiceImpl implements AthleteService {
 
     @Override
     public Athlete create(AthleteDto athleteDto) {
-
         Athlete athlete = AthleteSupport.process(athleteDto);
-
         Athlete one = sportsmanRepository.save(athlete);
         return one;
+    }
+
+    @Override
+    public Athlete getById(String id) {
+       return sportsmanRepository.findOne(id);
     }
 }
