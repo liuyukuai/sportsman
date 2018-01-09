@@ -17,11 +17,6 @@ public class HealthController {
     @Autowired
     private HealthService healthService;
 
-    @GetMapping("sportsman.htm")
-    public String sports(){
-        return "sportsman";
-    }
-
     /**
      * 增加
      */
