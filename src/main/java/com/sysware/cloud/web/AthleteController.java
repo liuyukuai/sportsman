@@ -14,9 +14,14 @@ public class AthleteController {
     @Autowired
     private AthleteService athleteService;
 
-    @GetMapping("sportsman.htm")
+    @GetMapping(value = {"/","index"})
     public String sports(){
-        return "sportsman";
+        return "index";
+    }
+
+    @GetMapping(value = "athletes")
+    public String createView(){
+        return "athlete_create";
     }
 
     /**

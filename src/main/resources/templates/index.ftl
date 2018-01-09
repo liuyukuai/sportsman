@@ -3,28 +3,25 @@
     <link rel="stylesheet" href="/css/ui.css"></head>
     <link rel="stylesheet" href="/css/index.css"></head>
 <body>
-<div class="index-container">
-    <mt-popup
-            v-model="popupVisible"
-            popup-transition="popup-fade"
-            position="top">
-        战前运动员信息录入
-    </mt-popup>
+<div id="app">
+<mt-header fixed title="运动员个人信息填报" class="app-header"></mt-header>
+<div class="index-container" >
     <!-- 首页功能栏部分 -->
     <ul class="icon-list">
-        <li class="icon">
+        <a href="/athletes"><li class="icon">
             <img src="/img/store.png" class="clear">
             <h4>运动员个人信息填报</h4>
             <p>运动员个人信息填报</p>
             <i></i>
-        </li>
-        <li class="icon">
+        </li></a>
+        <a href="index.ftl"><li class="icon">
             <img src="/img/store.png" class="clear">
             <h4>运动员健康状态填报</h4>
             <p>运动员健康状态填报</p>
             <i></i>
-        </li>
+        </li></a>
     </ul>
+</div>
 </div>
 </body>
 <!-- 先引入 Vue -->

@@ -31,19 +31,19 @@ public class WxAuthenticationTokenFilter extends OncePerRequestFilter {
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain chain) throws ServletException, IOException {
-        Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-        StringBuffer url = httpRequest.getRequestURL();
-        System.out.println("url:"+ url);
-        String paramState = httpRequest.getParameter("state");
-        String paramCode = httpRequest.getParameter("code");
-        if(authentication==null &&  StringUtils.isNotBlank(paramState) && StringUtils.isNotBlank(paramCode)){
-            UserInfo userInfo = WxUtils.getUserByCode(paramCode);
-            UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                    userInfo, null, userInfo.getAuthorities());
-            usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-        }
+//        Authentication authentication =  SecurityContextHolder.getContext().getAuthentication();
+//        HttpServletRequest httpRequest = (HttpServletRequest) request;
+//        StringBuffer url = httpRequest.getRequestURL();
+//        System.out.println("url:"+ url);
+//        String paramState = httpRequest.getParameter("state");
+//        String paramCode = httpRequest.getParameter("code");
+//        if(authentication==null &&  StringUtils.isNotBlank(paramState) && StringUtils.isNotBlank(paramCode)){
+//            UserInfo userInfo = WxUtils.getUserByCode(paramCode);
+//            UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+//                    userInfo, null, userInfo.getAuthorities());
+//            usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+//                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+//        }
         chain.doFilter(request, response);
     }
 }

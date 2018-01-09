@@ -1,6 +1,20 @@
+.app-header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 3;
+    height: 45px;
+    line-height: 45px;
+    font-size: 19px;
+    background: linear-gradient(180deg,#303036,#3c3b40);
+    color: #fff;
+    text-align: center;
+}
+
 .index-container{
     position: absolute;
-    top: 30px;
+    top: 60px;
     height: 100%;
     width:100%;
 }
