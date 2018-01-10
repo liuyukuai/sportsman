@@ -7,6 +7,8 @@ import com.sysware.cloud.support.AthleteSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AthleteServiceImpl implements AthleteService {
 
@@ -23,5 +25,10 @@ public class AthleteServiceImpl implements AthleteService {
     @Override
     public Athlete getById(String id) {
        return athleteRepository.findOne(id);
+    }
+
+    @Override
+    public List<Athlete> list() {
+        return athleteRepository.findAll();
     }
 }
