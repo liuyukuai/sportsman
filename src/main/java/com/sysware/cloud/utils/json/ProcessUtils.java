@@ -1,12 +1,12 @@
 package com.sysware.cloud.utils.json;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 
 /**
  * 公共拷贝类
@@ -77,7 +77,7 @@ public final class ProcessUtils {
         }
         try {
             R r = clazz.newInstance();
-           return processObject(r,src,callback);
+            return processObject(r,src,callback);
         } catch (Exception e) {
             logger.error("拷贝对象失败", e);
         }

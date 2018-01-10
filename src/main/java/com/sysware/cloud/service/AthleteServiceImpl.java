@@ -11,18 +11,17 @@ import org.springframework.stereotype.Service;
 public class AthleteServiceImpl implements AthleteService {
 
     @Autowired
-    private AthleteRepository sportsmanRepository;
+    private AthleteRepository athleteRepository;
 
 
     @Override
     public Athlete create(AthleteDto athleteDto) {
         Athlete athlete = AthleteSupport.process(athleteDto);
-        Athlete one = sportsmanRepository.save(athlete);
-        return one;
+        return athleteRepository.save(athlete);
     }
 
     @Override
     public Athlete getById(String id) {
-       return sportsmanRepository.findOne(id);
+       return athleteRepository.findOne(id);
     }
 }
