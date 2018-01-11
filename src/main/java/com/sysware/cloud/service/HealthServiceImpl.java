@@ -20,10 +20,11 @@ public class HealthServiceImpl implements HealthService {
 
     @Override
     public Health saveHealth(HealthDto healthDto) {
+        return healthRepository.save(HealthSupport.process(healthDto));
+    }
 
-        Health health = HealthSupport.process(healthDto);
-
-        Health one = healthRepository.save(health);
-        return one;
+    @Override
+    public Health getById(String id) {
+        return healthRepository.findOne(id);
     }
 }

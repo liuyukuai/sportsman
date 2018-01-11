@@ -7,4 +7,6 @@ import com.sysware.cloud.entity.Health;
 
 public interface HealthService {
     Health saveHealth(HealthDto healthDto);
+
+    Health getById(String id);
 }
